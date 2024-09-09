@@ -1,15 +1,24 @@
 @font-face {
     font-family: 'norsebold';
     src: url('fonts/norse-bold-webfont.woff2') format('woff2'),
-         url('fonts/norse-bold-webfont.woff') format('woff');
+        url('fonts/norse-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
 
+:root {
+    --green: #596D48;
+    --light-background: #F9FAFB;
+    --light-border: #d3d1d1;
+    --form-font-color: #222C3A;
+    --light-shadow: #cccbcb;
+}
+
 body {
     display: flex;
     flex-grow: 1;
+    background-color: var(--light-background);
 }
 
 .left,
@@ -17,6 +26,11 @@ body {
     display: flex;
     flex-direction: column;
     flex-basis: 50%;
+}
+
+.right {
+    padding-top: 150px;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
 .left img {
@@ -30,7 +44,7 @@ body {
     bottom: 10px;
     right: 50%;
     margin-right: 10px;
-    background: rgba(0, 0, 0, 0.5); 
+    background: rgba(0, 0, 0, 0.3);
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
@@ -38,29 +52,153 @@ body {
 
 a:link {
     color: white;
-    font-weight: 700;
 }
 
 .logo {
     position: absolute;
-    width: 50%; 
+    width: 50%;
     height: 100px;
     display: flex;
-    padding: 20px 0;
+    padding: 10px 0;
     align-items: center;
-    background: rgba(0, 0, 0, 0.4); 
+    background: rgba(0, 0, 0, 0.4);
     top: 250px;
-    justify-content: center; 
+    justify-content: center;
 }
 
 .logo img {
     height: 100%;
-    width: auto;  
+    width: auto;
 }
 
 .logo div {
     font-family: 'norsebold';
     color: white;
-    font-size: 4rem;
+    font-size: 5rem;
     margin-left: 10px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-right: 20%;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-top: 20px;
+    background-color: white;
+    box-shadow: 6px 4px 10px 1px var(--light-shadow);
+    margin-top: 50px;
+
+    color: var(--form-font-color);
+}
+
+.container>div {
+    width: 40%;
+    margin-right: 30px;
+    flex-flow: row wrap;
+    display: flex;
+}
+
+form label,
+form h2,
+form input {
+    display: block;
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px;
+    height: 30px;
+}
+
+form h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+form label {
+    text-transform: uppercase;
+}
+
+form input {
+    border: 1px solid var(--light-border);
+    height: 40px;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: none;
+    border-color: blue;
+    box-shadow: 0 0 0 0.05rem blue;
+}
+
+input[type="password"]:invalid {
+    outline: none;
+    border-color: red;
+}
+
+.right>div {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+#createBtn {
+    background-color: var(--green);
+    border: none;
+    border-radius: 10px;
+    padding: 15px 40px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-left: 40px;
+    box-shadow: 4px 4px 15px grey;
+}
+
+input+span {
+    position: relative;
+}
+
+input+span::after {
+    font-size: 0.7rem;
+    position: absolute;
+    padding: 5px 10px;
+    top: -26px;
+    color: var(--form-font-color);
+    content: "*";
+    left: -30px;
+    font-size: 1.3rem;
+}
+
+input+span::before {
+    position: absolute;
+    right: -28px;
+    top: 8px;
+    font-size: 1.5rem;
+}
+
+input[type="password"]:invalid+span::before {
+    content: '✖';
+    color: red;
+}
+
+input[type="password"]:valid+span::before {
+    content: '✓';
+    color: green;
+}
+
+div.exist {
+    padding-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.exist span {
+    color: var(--green);
 }
