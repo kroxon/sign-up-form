@@ -57,7 +57,7 @@ a:link {
 .logo {
     position: absolute;
     width: 50%;
-    height: 100px;
+    height: 200px;
     display: flex;
     padding: 10px 0;
     align-items: center;
@@ -74,7 +74,7 @@ a:link {
 .logo div {
     font-family: 'norsebold';
     color: white;
-    font-size: 5rem;
+    font-size: 9rem;
     margin-left: 10px;
 }
 
